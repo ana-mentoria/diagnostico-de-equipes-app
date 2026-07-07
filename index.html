@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Diagnóstico de Equipes — Ana Almeida Mentoria</title>
+    <!--
+      GitHub Pages é hospedagem estática: um acesso direto a
+      /diagnostico-de-equipes-app/responder/TOKEN não existe como arquivo e
+      cairia no 404.html. O 404.html (ver public/404.html) redireciona para
+      cá guardando o caminho original numa query string; este script
+      reconstrói a URL certa antes do React montar. Padrão conhecido como
+      "spa-github-pages" (rafgraf).
+    -->
+    <script>
+      (function () {
+        var redirect = sessionStorage.redirect;
+        delete sessionStorage.redirect;
+        if (redirect && redirect !== location.href) {
+          history.replaceState(null, null, redirect);
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
