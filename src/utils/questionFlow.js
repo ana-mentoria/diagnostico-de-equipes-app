@@ -1,16 +1,27 @@
 import questions from '../data/questions.json'
 
-// Monta a sequência de perguntas para um papel (líder ou liderado), na ordem
-// descrita na especificação (seção 3): autoavaliação/avaliação do líder (12),
-// dinâmica da equipe (5 para líder, 6 para liderado), perguntas abertas (5).
+// Monta a sequência de perguntas para um papel (líder ou liderado).
+// Líder: autoavaliação (13) -> dinâmica da equipe (6) -> abertas (5).
+// Liderado: autoavaliação própria (5, seção nova) -> avaliação da liderança (13)
+// -> dinâmica da equipe (7) -> abertas (5). A autoavaliação do liderado vem
+// ANTES da avaliação da liderança de propósito: ele reflete sobre o próprio
+// esforço/autonomia antes de julgar o líder.
 export function getQuestionFlow(papel) {
-  const bloco = papel === 'lider' ? questions.bloco_lider : questions.bloco_liderado
-  const principal = papel === 'lider' ? bloco.autoavaliacao : bloco.avaliacao_lider
-
   const withSection = (arr, secao) => arr.map((q) => ({ ...q, secao }))
 
+  if (papel === 'lider') {
+    const bloco = questions.bloco_lider
+    return [
+      ...withSection(bloco.autoavaliacao, 'autoavaliacao_lider'),
+      ...withSection(bloco.equipe, 'dinamica_equipe'),
+      ...withSection(bloco.abertas, 'abertas'),
+    ]
+  }
+
+  const bloco = questions.bloco_liderado
   return [
-    ...withSection(principal, 'lideranca'),
+    ...withSection(bloco.autoavaliacao, 'autoavaliacao_liderado'),
+    ...withSection(bloco.avaliacao_lider, 'avaliacao_lider'),
     ...withSection(bloco.equipe, 'dinamica_equipe'),
     ...withSection(bloco.abertas, 'abertas'),
   ]
@@ -25,7 +36,9 @@ export function getIdentificacao() {
 }
 
 export const SECAO_LABELS = {
-  lideranca: 'Autoavaliação de liderança',
+  autoavaliacao_lider: 'Autoavaliação de liderança',
+  autoavaliacao_liderado: 'Sua autoavaliação',
+  avaliacao_lider: 'Avaliação da liderança',
   dinamica_equipe: 'Dinâmica da equipe',
   abertas: 'Perguntas abertas',
 }

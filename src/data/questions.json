@@ -1,8 +1,9 @@
 {
   "meta": {
     "titulo": "Diagnóstico de Equipes — Ana Almeida Mentoria",
-    "versao": "1.0",
+    "versao": "1.1",
     "data_criacao": "2026-07-05",
+    "data_atualizacao": "2026-07-08",
     "escala_likert": {
       "min": 1,
       "max": 5,
@@ -37,14 +38,16 @@
       { "codigo": "L09", "dimensao_id": "gestao_conflitos", "dimensao_label": "Gestão de conflitos", "tipo": "likert", "texto": "Quando surgem conflitos na equipe, eu ajo para resolvê-los de forma construtiva, em vez de evitá-los." },
       { "codigo": "L10", "dimensao_id": "autogestao_emocional", "dimensao_label": "Autogestão emocional", "tipo": "likert", "texto": "Eu consigo manter o equilíbrio emocional mesmo em momentos de pressão ou diante de erros da equipe." },
       { "codigo": "L11", "dimensao_id": "senso_proposito", "dimensao_label": "Senso de propósito", "tipo": "likert", "texto": "Eu conecto o trabalho do dia a dia da equipe a um propósito ou objetivo maior." },
-      { "codigo": "L12", "dimensao_id": "confianca_percebida", "dimensao_label": "Confiança percebida", "tipo": "likert", "texto": "Eu acredito que, hoje, minha equipe confia em mim como líder." }
+      { "codigo": "L12", "dimensao_id": "confianca_percebida", "dimensao_label": "Confiança percebida", "tipo": "likert", "texto": "Eu acredito que, hoje, minha equipe confia em mim como líder." },
+      { "codigo": "L13", "dimensao_id": "conhecimento_talentos_equipe", "dimensao_label": "Conhecimento dos talentos da equipe", "tipo": "likert", "texto": "Eu conheço bem os pontos fortes de cada pessoa da minha equipe e busco direcionar tarefas para o que cada um faz melhor." }
     ],
     "equipe": [
       { "codigo": "LE01", "dimensao_id": "conflitos_nao_resolvidos", "tipo": "likert", "texto": "Existem conflitos não resolvidos entre pessoas da minha equipe atualmente." },
       { "codigo": "LE02", "dimensao_id": "colaboracao_pares", "tipo": "likert", "texto": "As pessoas da minha equipe colaboram bem entre si, independentemente de mim." },
       { "codigo": "LE03", "dimensao_id": "clareza_papeis", "tipo": "likert", "texto": "Há clareza sobre papéis e responsabilidades entre os membros da equipe." },
       { "codigo": "LE04", "dimensao_id": "justica_carga_trabalho", "tipo": "likert", "texto": "A carga de trabalho é distribuída de forma justa entre os membros da equipe." },
-      { "codigo": "LE05", "dimensao_id": "seguranca_psicologica", "tipo": "likert", "texto": "Minha equipe se sente segura para expressar discordâncias ou preocupações abertamente, mesmo comigo." }
+      { "codigo": "LE05", "dimensao_id": "seguranca_psicologica", "tipo": "likert", "texto": "Minha equipe se sente segura para expressar discordâncias ou preocupações abertamente, mesmo comigo." },
+      { "codigo": "LE06", "dimensao_id": "resposta_a_desafios", "tipo": "likert", "texto": "Quando surge um desafio ou imprevisto, minha equipe responde de forma ágil e resolutiva, sem depender de mim para cada decisão." }
     ],
     "abertas": [
       { "codigo": "LA01", "tipo": "texto_longo", "texto": "Quais você considera seus principais pontos fortes como líder desta equipe?" },
@@ -56,6 +59,13 @@
   },
 
   "bloco_liderado": {
+    "autoavaliacao": [
+      { "codigo": "AA01", "dimensao_id": "esforco_dedicacao", "dimensao_label": "Esforço e dedicação", "tipo": "likert", "texto": "Eu me dedico com esforço genuíno às minhas responsabilidades nesta equipe, mesmo quando não estou sendo supervisionado(a) de perto." },
+      { "codigo": "AA02", "dimensao_id": "autogestao_emocional_liderado", "dimensao_label": "Autogestão emocional", "tipo": "likert", "texto": "Eu consigo manter o equilíbrio emocional mesmo diante de pressões, mudanças ou feedbacks difíceis no trabalho." },
+      { "codigo": "AA03", "dimensao_id": "autonomia_recebida", "dimensao_label": "Autonomia recebida", "tipo": "likert", "texto": "Eu recebo da liderança a autonomia necessária para tomar decisões dentro da minha função." },
+      { "codigo": "AA04", "dimensao_id": "autonomia_correspondida", "dimensao_label": "Autonomia correspondida", "tipo": "likert", "texto": "Quando recebo autonomia, eu a uso de forma responsável, entregando resultado sem precisar de cobrança constante." },
+      { "codigo": "AA05", "dimensao_id": "autorresponsabilidade", "dimensao_label": "Autorresponsabilidade", "tipo": "likert", "texto": "Quando algo não sai como esperado no meu trabalho, eu busco entender minha parte de responsabilidade antes de atribuir a causa apenas a fatores externos." }
+    ],
     "avaliacao_lider": [
       { "codigo": "D01", "dimensao_id": "clareza_expectativas", "dimensao_label": "Clareza de expectativas", "tipo": "likert", "texto": "Meu líder deixa claro o que espera do meu trabalho." },
       { "codigo": "D02", "dimensao_id": "recursos_condicoes", "dimensao_label": "Recursos e condições", "tipo": "likert", "texto": "Meu líder se certifica de que eu tenho as condições e os recursos necessários para fazer um bom trabalho." },
@@ -68,7 +78,8 @@
       { "codigo": "D09", "dimensao_id": "gestao_conflitos", "dimensao_label": "Gestão de conflitos", "tipo": "likert", "texto": "Quando surgem conflitos na equipe, meu líder age para resolvê-los de forma construtiva, em vez de evitá-los." },
       { "codigo": "D10", "dimensao_id": "autogestao_emocional", "dimensao_label": "Autogestão emocional", "tipo": "likert", "texto": "Meu líder mantém o equilíbrio emocional mesmo em momentos de pressão ou diante de erros da equipe." },
       { "codigo": "D11", "dimensao_id": "senso_proposito", "dimensao_label": "Senso de propósito", "tipo": "likert", "texto": "Meu líder conecta o trabalho do dia a dia a um propósito ou objetivo maior." },
-      { "codigo": "D12", "dimensao_id": "confianca_percebida", "dimensao_label": "Confiança", "tipo": "likert", "texto": "Eu confio no meu líder." }
+      { "codigo": "D12", "dimensao_id": "confianca_percebida", "dimensao_label": "Confiança", "tipo": "likert", "texto": "Eu confio no meu líder." },
+      { "codigo": "D13", "dimensao_id": "conhecimento_talentos_equipe", "dimensao_label": "Conhecimento dos talentos da equipe", "tipo": "likert", "texto": "Meu líder conhece bem os meus pontos fortes e busca direcionar tarefas para o que eu faço melhor." }
     ],
     "equipe": [
       { "codigo": "DE01", "dimensao_id": "conflitos_nao_resolvidos", "tipo": "likert", "texto": "Existem conflitos não resolvidos entre pessoas da minha equipe atualmente." },
@@ -76,7 +87,8 @@
       { "codigo": "DE03", "dimensao_id": "clareza_papeis", "tipo": "likert", "texto": "Há clareza sobre papéis e responsabilidades entre os membros da equipe." },
       { "codigo": "DE04", "dimensao_id": "justica_carga_trabalho", "tipo": "likert", "texto": "A carga de trabalho é distribuída de forma justa entre os membros da equipe." },
       { "codigo": "DE05", "dimensao_id": "seguranca_psicologica", "tipo": "likert", "texto": "Eu me sinto seguro(a) para expressar discordâncias ou preocupações abertamente na equipe." },
-      { "codigo": "DE06", "dimensao_id": "confianca_pares", "tipo": "likert", "texto": "Eu confio nos meus colegas de equipe." }
+      { "codigo": "DE06", "dimensao_id": "resposta_a_desafios", "tipo": "likert", "texto": "Quando surge um desafio ou imprevisto, minha equipe responde de forma ágil e resolutiva." },
+      { "codigo": "DE07", "dimensao_id": "confianca_pares", "tipo": "likert", "texto": "Eu confio nos meus colegas de equipe." }
     ],
     "abertas": [
       { "codigo": "DA01", "tipo": "texto_longo", "texto": "Quais você considera os principais pontos fortes do seu líder?" },
@@ -90,6 +102,7 @@
   "pares_dimensoes_360": [
     "clareza_expectativas", "recursos_condicoes", "reconhecimento", "cuidado_genuino",
     "desenvolvimento", "voz_participacao", "abertura_feedback", "coerencia_confianca",
-    "gestao_conflitos", "autogestao_emocional", "senso_proposito", "confianca_percebida"
+    "gestao_conflitos", "autogestao_emocional", "senso_proposito", "confianca_percebida",
+    "conhecimento_talentos_equipe"
   ]
 }
