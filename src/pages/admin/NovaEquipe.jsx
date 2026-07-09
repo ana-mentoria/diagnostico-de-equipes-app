@@ -12,7 +12,11 @@ export default function NovaEquipe({ onEquipeCriada }) {
   const [clientId, setClientId] = useState('')
   const [novoClienteNome, setNovoClienteNome] = useState('')
   const [equipeNome, setEquipeNome] = useState('')
-  const [qtd, setQtd] = useState(2)
+  // Guardado como texto (não número) enquanto o campo está sendo editado —
+  // se a gente força um valor numérico a cada tecla, apagar o campo para
+  // digitar outro número faz ele "pular" de volta para 1 antes de aceitar o
+  // próximo dígito (ex.: apagar "2", campo vira "1", digitar "0" vira "10").
+  const [qtdInput, setQtdInput] = useState('2')
   const [roster, setRoster] = useState([
     { nome: '', email: '', papel: 'lider' },
     { nome: '', email: '', papel: 'liderado' },
@@ -33,9 +37,7 @@ export default function NovaEquipe({ onEquipeCriada }) {
     return () => { cancelled = true }
   }, [])
 
-  function handleQtdChange(value) {
-    const n = Math.max(1, parseInt(value, 10) || 1)
-    setQtd(n)
+  function syncRosterToCount(n) {
     setRoster((prev) => {
       const next = prev.slice(0, n)
       while (next.length < n) next.push({ nome: '', email: '', papel: 'liderado' })
@@ -43,18 +45,42 @@ export default function NovaEquipe({ onEquipeCriada }) {
     })
   }
 
+  function handleQtdChange(value) {
+    // Aceita o texto como o usuário está digitando, sem forçar de volta
+    // para "1" enquanto o campo estiver vazio ou incompleto.
+    setQtdInput(value)
+    if (value.trim() === '') return
+    const n = parseInt(value, 10)
+    if (!Number.isFinite(n) || n < 1) return
+    syncRosterToCount(n)
+  }
+
+  function handleQtdBlur() {
+    // Só ao sair do campo (ou perder o foco) é que normalizamos para um
+    // número válido, caso tenha ficado vazio ou inválido.
+    const n = Math.max(1, parseInt(qtdInput, 10) || 1)
+    setQtdInput(String(n))
+    syncRosterToCount(n)
+  }
+
   function updateRosterRow(index, field, value) {
     setRoster((prev) => prev.map((r, i) => (i === index ? { ...r, [field]: value } : r)))
   }
 
   function addRosterRow() {
-    setRoster((prev) => [...prev, { nome: '', email: '', papel: 'liderado' }])
-    setQtd((n) => n + 1)
+    setRoster((prev) => {
+      const next = [...prev, { nome: '', email: '', papel: 'liderado' }]
+      setQtdInput(String(next.length))
+      return next
+    })
   }
 
   function removeRosterRow(index) {
-    setRoster((prev) => prev.filter((_, i) => i !== index))
-    setQtd((n) => Math.max(1, n - 1))
+    setRoster((prev) => {
+      const next = prev.filter((_, i) => i !== index)
+      setQtdInput(String(next.length))
+      return next
+    })
   }
 
   function validar() {
@@ -115,7 +141,7 @@ export default function NovaEquipe({ onEquipeCriada }) {
     setClientId('')
     setNovoClienteNome('')
     setEquipeNome('')
-    setQtd(2)
+    setQtdInput('2')
     setRoster([
       { nome: '', email: '', papel: 'lider' },
       { nome: '', email: '', papel: 'liderado' },
@@ -184,9 +210,10 @@ export default function NovaEquipe({ onEquipeCriada }) {
       <input
         type="number"
         min="1"
-        value={qtd}
+        value={qtdInput}
         style={{ maxWidth: 120 }}
         onChange={(e) => handleQtdChange(e.target.value)}
+        onBlur={handleQtdBlur}
       />
       <p className="muted" style={{ marginTop: -6 }}>
         Observação: a comparação 360° por dimensão só é liberada quando pelo menos 5 liderados responderem
