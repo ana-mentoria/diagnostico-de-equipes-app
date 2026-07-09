@@ -34,6 +34,13 @@
   border: 1px solid var(--border);
   border-radius: 16px;
   overflow: hidden;
+  /* #root (index.css) é um flex container com align-items:stretch por padrão,
+     o que forçava esta caixa a ficar exatamente do tamanho da tela — e o
+     overflow:hidden acima cortava fora tudo que passasse disso (os botões
+     "Adicionar respondente", "Criar equipe", e o final da aba E-mails).
+     align-self:flex-start faz a caixa crescer com o conteúdo em vez de ser
+     esticada para caber na tela. */
+  align-self: flex-start;
 }
 
 .admin-app .topbar {
