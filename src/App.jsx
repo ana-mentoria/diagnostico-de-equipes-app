@@ -1,9 +1,9 @@
 import RespondentFlow from './pages/RespondentFlow'
+import AdminApp from './pages/admin/AdminApp'
 
-// Roteamento simples por caminho da URL: /responder/{token-da-equipe}
-// A Fase 2 (painel da administradora) vai adicionar mais rotas aqui
-// (ex.: /admin/login, /admin/equipes/:id) — provavelmente migrando
-// para react-router-dom quando o número de telas justificar.
+// Roteamento simples por caminho da URL: /responder/{token-da-equipe} e /admin.
+// Sem dependência de react-router: só duas áreas (pública e administrativa),
+// cada uma com sua própria navegação interna por estado (ver AdminShell).
 function App() {
   const path = window.location.pathname
   // Sem âncora (^) no início: no GitHub Pages o site fica num subcaminho
@@ -13,6 +13,10 @@ function App() {
 
   if (match) {
     return <RespondentFlow token={match[1]} />
+  }
+
+  if (path.includes('/admin')) {
+    return <AdminApp />
   }
 
   return (
@@ -25,7 +29,7 @@ function App() {
             sua equipe (algo como <code>/responder/token-da-equipe</code>).
           </p>
           <p>
-            O painel da administradora será implementado na próxima fase.
+            Administradora? Acesse <code>/admin</code>.
           </p>
         </div>
       </div>

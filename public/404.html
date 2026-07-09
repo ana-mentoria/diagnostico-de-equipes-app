@@ -3,6 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <title>Diagnóstico de Equipes</title>
+    <!--
+      GitHub Pages serve este arquivo para qualquer caminho que não exista
+      fisicamente (ex.: /diagnostico-de-equipes-app/responder/TOKEN).
+      Guardamos o caminho pedido e mandamos de volta para o index.html, que
+      devolve a URL certa (ver script no <head> do index.html).
+      Padrão "spa-github-pages" (rafgraf), usado para SPAs em GitHub Pages.
+    -->
     <script>
       sessionStorage.redirect = location.href;
     </script>
