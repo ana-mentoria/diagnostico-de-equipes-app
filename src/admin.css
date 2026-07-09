@@ -1,0 +1,124 @@
+/* Estilos do painel da administradora (Fase 2).
+   Reaproveita as variáveis de cor definidas em index.css (--accent, --border
+   etc.) e as regras genéricas de label/input/select/textarea/.muted/.error-box
+   já usadas na tela do respondente, para manter a mesma identidade visual —
+   ver Diagnostico_Equipes_Layout_Painel_Administradora.html (protótipo aprovado). */
+
+.admin-login-shell {
+  width: 100%;
+  max-width: 420px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  padding-top: 60px;
+}
+
+.admin-login-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 32px 28px;
+  width: 100%;
+  text-align: center;
+}
+
+.admin-login-logo { height: 52px; width: auto; margin-bottom: 16px; }
+.admin-login-card h1 { font-size: 19px; }
+.admin-login-card label { text-align: left; }
+
+.admin-app {
+  max-width: 960px;
+  width: 100%;
+  margin: 0 auto;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.admin-app .topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--bg);
+}
+.admin-app .brand { display: flex; align-items: center; gap: 10px; }
+.admin-app .logo-box { width: 34px; height: 34px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.admin-app .logo-box img { width: 100%; height: 100%; object-fit: contain; }
+.admin-app .brand-name { font-size: 14px; font-weight: 600; }
+.admin-app .brand-sub { font-size: 12px; color: var(--muted); }
+.admin-app .user-chip { font-size: 12px; color: var(--muted); }
+
+.admin-app .tabs { display: flex; gap: 4px; padding: 0 20px; border-bottom: 1px solid var(--bg); overflow-x: auto; }
+.admin-app .tab-btn {
+  padding: 12px 14px; font-size: 13px; font-weight: 600; color: var(--muted);
+  background: none; border: none; border-bottom: 2px solid transparent; cursor: pointer; white-space: nowrap;
+}
+.admin-app .tab-btn.active { color: var(--accent); border-bottom-color: var(--accent); }
+.admin-app .content { padding: 24px; min-height: 480px; }
+
+.admin-app h1 { font-size: 19px; font-weight: 600; margin: 0 0 4px; }
+.admin-app h2 { font-size: 16px; font-weight: 600; margin: 0 0 12px; }
+.admin-app p { font-size: 13px; }
+
+.admin-app .card {
+  background: #FAF9F5; border: 1px solid var(--bg); border-radius: 10px;
+  padding: 14px 16px; margin-bottom: 10px;
+}
+.admin-app .row-between { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+
+.admin-app .progress-track { height: 6px; background: var(--bg); border-radius: 3px; overflow: hidden; width: 140px; margin: 0; }
+.admin-app .progress-fill { height: 100%; background: var(--accent); }
+
+.admin-app button.btn {
+  padding: 8px 14px; border-radius: 8px; border: 1px solid var(--border); background: #fff;
+  font-size: 13px; font-weight: 600; cursor: pointer; color: var(--text);
+}
+.admin-app button.btn.primary { background: var(--accent); color: #fff; border-color: var(--accent); }
+.admin-app button.btn.small { padding: 5px 10px; font-size: 12px; }
+.admin-app a.btn { text-decoration: none; display: inline-block; }
+
+.admin-app label { font-size: 12px; }
+.admin-app input, .admin-app select, .admin-app textarea { margin-bottom: 12px; }
+.admin-app input[type="checkbox"] { width: auto; padding: 0; border: none; margin: 0; }
+
+.admin-app .table-wrap { width: 100%; overflow-x: auto; }
+.admin-app table { width: 100%; border-collapse: collapse; font-size: 12px; }
+.admin-app th { text-align: left; font-size: 11px; color: var(--muted); padding: 6px 8px; border-bottom: 1px solid var(--bg); }
+.admin-app td { padding: 6px 8px; font-size: 12px; border-bottom: 1px solid #F5F3EC; }
+.admin-app td.wrap { white-space: normal; }
+.admin-app .action-stack { display: flex; flex-direction: column; gap: 4px; }
+.admin-app .action-stack .btn { width: 100%; padding: 3px 6px; font-size: 11px; text-align: center; }
+
+.admin-app .chip { font-size: 11px; padding: 3px 9px; border-radius: 6px; font-weight: 600; display: inline-block; }
+.admin-app .chip.done { background: var(--success-bg); color: var(--success-text); }
+.admin-app .chip.pending { background: #F5F3EC; color: var(--muted); }
+
+.admin-app .roster-row-4 {
+  display: grid; grid-template-columns: 1.3fr 1.5fr 1fr auto; gap: 8px; align-items: center; margin-bottom: 8px;
+}
+.admin-app .roster-row-4 input, .admin-app .roster-row-4 select { margin-bottom: 0; }
+
+.admin-app .link-box {
+  display: flex; align-items: center; gap: 8px; background: #F5F3EC; border-radius: 8px;
+  padding: 8px 12px; font-size: 12px; color: var(--text-soft); margin-bottom: 12px; word-break: break-all;
+}
+
+.admin-app .warning-banner {
+  background: #FAEEDA; color: #854F0B; border-radius: 8px; padding: 10px 14px; font-size: 12px; margin-bottom: 16px;
+}
+
+.admin-app .dim-card { background: #FAF9F5; border: 1px solid var(--bg); border-radius: 10px; padding: 12px 14px; margin-bottom: 10px; }
+.admin-app .dim-val { font-size: 12px; color: var(--muted); text-align: right; white-space: nowrap; }
+
+.admin-app .section-title {
+  font-size: 13px; font-weight: 600; color: var(--muted); text-transform: uppercase;
+  letter-spacing: 0.03em; margin: 20px 0 10px;
+}
+.admin-app .section-title:first-child { margin-top: 0; }
+
+.admin-app textarea.ai-box {
+  width: 100%; font-family: inherit; font-size: 13px; padding: 10px; border: 1px solid var(--border);
+  border-radius: 8px; line-height: 1.6; resize: vertical;
+}
